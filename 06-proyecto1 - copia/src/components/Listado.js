@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from 'react'
+import { Editar } from './Editar';
 
 
 export const Listado = ({listadoState, setlistadoState}) => {
 
 //const [listadoState, setlistadoState] = useState([]);
+
+const [editar, setEditar] = useState(0);
 
 useEffect(() => {
   conseguirPeliculas();
@@ -20,7 +23,7 @@ const conseguirPeliculas = () => {
 
 const borrarPeli = (id) => {
 //Conseguir las peliculas almacenadas 
-let pelis_almacenadas = conseguirPeliculas();
+let pelis_almacenadas = conseguirPeliculas(); //Ejecuta la funcion conseguirPeliculas();
 
 //Filtrar esas peliculas para que elimine del array la que no quiero
 let nuevo_array_peliculas = pelis_almacenadas.filter(peli => peli.id !==parseInt(id));
@@ -44,8 +47,18 @@ return (
                 <h3 className="title">{peli.titulo}</h3>
                 <p className="description">{peli.descripcion}</p>
 
-                <button className="edit">Editar</button>
+                <button className="edit" onClick={ () => {
+                  setEditar(peli.id)
+                }}>Editar</button>
                 <button className="delete" onClick={ () => borrarPeli(peli.id)}>Borrar</button>
+
+               {/*aparece formulario editar*/}
+               {editar == peli.id && (
+
+                <Editar peli = {peli} />
+                
+               )}
+
             </article>
 
       );
@@ -61,6 +74,3 @@ return (
   )
 
 }
-
-
-
