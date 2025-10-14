@@ -55,7 +55,12 @@ return (
                {/*aparece formulario editar*/}
                {editar == peli.id && (
 
-                <Editar peli = {peli} />
+                <Editar peli = {peli} 
+                conseguirPeliculas = {conseguirPeliculas}
+                setEditar= {setEditar}
+                setlistadoState={setlistadoState}
+
+                />
                 
                )}
 
@@ -74,3 +79,5 @@ return (
   )
 
 }
+
+
