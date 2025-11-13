@@ -1,7 +1,6 @@
-const { dbConnection } = require("./database/connection.js");
-const express = require ("express");
+const { dbConnection } = require ("./database/connection");
+const express = require("express");
 const cors = require("cors");
-
 
 dbConnection();
 

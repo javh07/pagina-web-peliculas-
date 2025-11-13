@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const dbConnection = async() => {   
     try {
@@ -8,7 +8,7 @@ const dbConnection = async() => {
 
     catch (error) {
         console.log(error);
-        throw new Error('Error a la hora de iniciar la base de datos');
+        throw new Error("Error a la hora de iniciar la base de datos");
     }   
 
 }
